@@ -1,0 +1,107 @@
+{
+  "personal_info": {
+    "name": "Matěj Faksa",
+    "location": "Moravskoslezský kraj, Česká republika",
+    "connections": "106+ spojení",
+    "followers": "107+ sledujících",
+    "mission_quote": "Šampioni se nerodí v posilovnách. Šampioni se rodí z něčeho hlubokého uvnitř nich - z touhy, snů a vize.",
+    "linkedin_url": "https://cz.linkedin.com/in/matej-faksa-148064177"
+  },
+  "current_positions": [
+    {
+      "title": "Projektový manažer",
+      "company": "C & C Engineering s.r.o.",
+      "duration": "Červenec 2021 - současnost (4 roky)",
+      "location": "Ostrava, Česká republika",
+      "description": "Tato pozice kombinuje obchodní dovednosti, koordinaci projektů a nábor nových zaměstnanců. Hlavním cílem je propojovat společnosti s nejlepšími kandidáty, efektivně řídit náborové procesy a rozvíjet obchodní vztahy s klienty.",
+      "key_responsibilities": [
+        "Prodej a akvizice – Aktivní vyhledávání nových obchodních příležitostí, budování vztahů s klienty a rozvoj spolupráce",
+        "Koordinace projektů – Řízení pracovních procesů, zajištění hladkého chodu operací",
+        "Nábor a získávání talentů",
+        "Řízení vztahů s klienty"
+      ]
+    },
+    {
+      "title": "Strategický obchodník / Nezávislý obchodní profesionál",
+      "company": "Nezávislý",
+      "duration": "Květen 2020 - současnost (5+ let)",
+      "location": "Česká republika",
+      "description": "Nezávislý obchodní profesionál s bohatými zkušenostmi v obchodu, investicích a rozvoji podnikání. Díky široké síti kontaktů napříč různými odvětvími propojuji společnosti, investory a obchodní partnery s cílem najít efektivní a strategická řešení."
+    }
+  ],
+  "previous_experience": [
+    {
+      "title": "Ředitel pro marketing a rozvoj nového podnikání",
+      "company": "MK Parfem",
+      "duration": "Květen 2019 - Květen 2020 (1 rok 1 měsíc)",
+      "location": "Okres Ostrava-město, Česká republika"
+    },
+    {
+      "title": "Obchodní manažer FOOD a GASTRO",
+      "company": "Semix Pluso, spol. s r. o.",
+      "duration": "Březen 2019 - Květen 2019 (3 měsíce)",
+      "location": "Okres Ostrava-město, Česká republika"
+    },
+    {
+      "title": "Vedoucí account manažer",
+      "company": "QUAENTAS",
+      "duration": "Leden 2018 - Prosinec 2018 (1 rok)",
+      "location": "Okres Brno-město, Česká republika"
+    },
+    {
+      "title": "Manažer prodeje",
+      "company": "Conturmind",
+      "duration": "2016 - 2018 (2 roky)"
+    },
+    {
+      "title": "Obchodník",
+      "company": "HB Partners s.r.o.",
+      "duration": "2014 - 2015 (1 rok)",
+      "location": "Praha, Česká republika"
+    }
+  ],
+  "ai_expertise": {
+    "certifications": [
+      {
+        "title": "Základy AI agentů",
+        "issuer": "Hugging Face",
+        "date": "Březen 2025",
+        "credential_id": "Mattesss"
+      }
+    ],
+    "completed_courses": [
+      {
+        "title": "Prompt Engineering: Jak komunikovat s AI",
+        "instructor": "Xavier Amatriain",
+        "platform": "LinkedIn Learning",
+        "completed": "Nedávno dokončeno"
+      }
+    ]
+  },
+  "industries": [
+    "Inženýrství a stavebnictví",
+    "Rozvoj podnikání",
+    "Prodej a marketing",
+    "Nábor a HR",
+    "Potraviny a GASTRO",
+    "Umělá inteligence",
+    "Investice a obchod"
+  ],
+  "core_skills": [
+    "Projektové řízení",
+    "Strategický rozvoj podnikání",
+    "Prodej a akvizice",
+    "Řízení vztahů s klienty",
+    "Nábor a získávání talentů",
+    "Implementace AI a prompt engineering",
+    "Budování sítí",
+    "Investiční strategie",
+    "Mezioborová spolupráce"
+  ],
+  "professional_activities": [
+    "Zveřejňování pracovních příležitostí v sektoru hutních materiálů",
+    "Účast na průmyslových výstavách a veletrzích",
+    "Kontinuální vzdělávání v oblasti AI a technologií",
+    "Budování profesionálních sítí napříč odvětvími"
+  ]
+}
