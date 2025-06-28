@@ -2,102 +2,102 @@
 
 🚀 **AI Community Builder & Business Strategist**
 
-Osobní webová stránka Matěje Faksy - odborníka na umělou inteligenci, obchodní strategii a budování komunit.
+Personal website of Matěj Faksa - expert in artificial intelligence, business strategy, and community building.
 
-## 🌟 O projektu
+## 🌟 About the Project
 
-Tato webová stránka představuje Matěje Faksu jako:
-- **Tvůrce AI komunity** - budování prostorů pro spolupráci a sdílení znalostí
-- **Obchodní stratég** - propojování tradičního podnikání s AI technologiemi
-- **AI expert** - implementace a poradenství v oblasti umělé inteligence
+This website presents Matěj Faksa as:
+- **AI Community Builder** - creating spaces for collaboration and knowledge sharing
+- **Business Strategist** - connecting traditional business with AI technologies
+- **AI Expert** - implementation and consulting in artificial intelligence
 
-## 🛠️ Technologie
+## 🛠️ Technologies
 
-- **React 18** s TypeScript
-- **Vite** - rychlý build tool
+- **React 18** with TypeScript
+- **Vite** - fast build tool
 - **Tailwind CSS** - utility-first CSS framework
-- **Framer Motion** - animace a interakce
-- **Shadcn/ui** - moderní UI komponenty
+- **Framer Motion** - animations and interactions
+- **Shadcn/ui** - modern UI components
 
-## 🚀 Spuštění projektu
+## 🚀 Getting Started
 
-### Předpoklady
-- Node.js (verze 18 nebo vyšší)
-- npm nebo yarn
+### Prerequisites
+- Node.js (version 18 or higher)
+- npm or yarn
 
-### Instalace a spuštění
+### Installation and Setup
 
 ```bash
-# Klonování repozitáře
-git clone https://github.com/VAS_USERNAME/matej-faksa-website.git
+# Clone the repository
+git clone https://github.com/Mattesss9/matej-faksa-website.git
 cd matej-faksa-website
 
-# Instalace závislostí
+# Install dependencies
 npm install
 
-# Spuštění vývojového serveru
+# Start development server
 npm run dev
 
-# Otevřete http://localhost:5173 v prohlížeči
+# Open http://localhost:5173 in your browser
 ```
 
-### Build pro produkci
+### Production Build
 
 ```bash
-# Vytvoření produkční verze
+# Create production build
 npm run build
 
-# Náhled produkční verze
+# Preview production build
 npm run preview
 ```
 
-## 📁 Struktura projektu
+## 📁 Project Structure
 
 ```
 matej-faksa-website/
 ├── public/
 │   └── data/
-│       └── matej_profile_data.json    # Data profilu
+│       └── matej_profile_data.json    # Profile data
 ├── src/
 │   ├── components/
-│   │   ├── HeroSection.tsx            # Hlavní sekce
-│   │   ├── AboutSection.tsx           # O mně
-│   │   ├── ExperienceSection.tsx      # Zkušenosti
-│   │   ├── AIVisionSection.tsx        # AI vize
-│   │   ├── WhyJoinSection.tsx         # Proč se připojit
-│   │   ├── TestimonialsSection.tsx    # Reference
-│   │   ├── ContactSection.tsx         # Kontakt
-│   │   └── ui/                        # UI komponenty
-│   ├── App.tsx                        # Hlavní aplikace
+│   │   ├── HeroSection.tsx            # Hero section
+│   │   ├── AboutSection.tsx           # About me
+│   │   ├── ExperienceSection.tsx      # Experience
+│   │   ├── AIVisionSection.tsx        # AI vision
+│   │   ├── WhyJoinSection.tsx         # Why join
+│   │   ├── TestimonialsSection.tsx    # Testimonials
+│   │   ├── ContactSection.tsx         # Contact
+│   │   └── ui/                        # UI components
+│   ├── App.tsx                        # Main application
 │   └── main.tsx                       # Entry point
 ├── package.json
 └── README.md
 ```
 
-## 🎨 Funkce
+## 🎨 Features
 
-- ✨ **Moderní design** s sci-fi estetikou
-- 🎭 **Animace** pomocí Framer Motion
-- 📱 **Responzivní design** pro všechna zařízení
-- 🌐 **Kompletně v češtině**
-- 📧 **Kontaktní formulář**
-- 🔗 **Integrace se sociálními sítěmi**
-- ⚡ **Rychlé načítání** díky Vite
+- ✨ **Modern design** with sci-fi aesthetics
+- 🎭 **Animations** powered by Framer Motion
+- 📱 **Responsive design** for all devices
+- 🌐 **Fully in Czech language**
+- 📧 **Contact form**
+- 🔗 **Social media integration**
+- ⚡ **Fast loading** thanks to Vite
 
-## 🌍 Jazyky
+## 🌍 Languages
 
-- **Čeština** - hlavní jazyk webu
-- Původně vytvořeno v angličtině a přeloženo do češtiny
+- **Czech** - main website language
+- Originally created in English and translated to Czech
 
-## 📞 Kontakt
+## 📞 Contact
 
 - **LinkedIn**: [Matěj Faksa](https://cz.linkedin.com/in/matej-faksa-148064177)
-- **Lokace**: Moravskoslezský kraj, Česká republika
+- **Location**: Moravian-Silesian Region, Czech Republic
 
-## 📄 Licence
+## 📄 License
 
-Tento projekt je určen pro osobní použití Matěje Faksy.
+This project is for personal use by Matěj Faksa.
 
 ---
 
-**Vytvořeno s ❤️ pro budoucnost AI a obchodní spolupráce**
+**Created with ❤️ for the future of AI and business collaboration**
