@@ -1,50 +1,103 @@
-# React + TypeScript + Vite
+# Matěj Faksa - Personal Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 **AI Community Builder & Business Strategist**
 
-Currently, two official plugins are available:
+Osobní webová stránka Matěje Faksy - odborníka na umělou inteligenci, obchodní strategii a budování komunit.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 O projektu
 
-## Expanding the ESLint configuration
+Tato webová stránka představuje Matěje Faksu jako:
+- **Tvůrce AI komunity** - budování prostorů pro spolupráci a sdílení znalostí
+- **Obchodní stratég** - propojování tradičního podnikání s AI technologiemi
+- **AI expert** - implementace a poradenství v oblasti umělé inteligence
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🛠️ Technologie
 
-- Configure the top-level `parserOptions` property like this:
+- **React 18** s TypeScript
+- **Vite** - rychlý build tool
+- **Tailwind CSS** - utility-first CSS framework
+- **Framer Motion** - animace a interakce
+- **Shadcn/ui** - moderní UI komponenty
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Spuštění projektu
+
+### Předpoklady
+- Node.js (verze 18 nebo vyšší)
+- npm nebo yarn
+
+### Instalace a spuštění
+
+```bash
+# Klonování repozitáře
+git clone https://github.com/VAS_USERNAME/matej-faksa-website.git
+cd matej-faksa-website
+
+# Instalace závislostí
+npm install
+
+# Spuštění vývojového serveru
+npm run dev
+
+# Otevřete http://localhost:5173 v prohlížeči
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Build pro produkci
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```bash
+# Vytvoření produkční verze
+npm run build
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+# Náhled produkční verze
+npm run preview
 ```
+
+## 📁 Struktura projektu
+
+```
+matej-faksa-website/
+├── public/
+│   └── data/
+│       └── matej_profile_data.json    # Data profilu
+├── src/
+│   ├── components/
+│   │   ├── HeroSection.tsx            # Hlavní sekce
+│   │   ├── AboutSection.tsx           # O mně
+│   │   ├── ExperienceSection.tsx      # Zkušenosti
+│   │   ├── AIVisionSection.tsx        # AI vize
+│   │   ├── WhyJoinSection.tsx         # Proč se připojit
+│   │   ├── TestimonialsSection.tsx    # Reference
+│   │   ├── ContactSection.tsx         # Kontakt
+│   │   └── ui/                        # UI komponenty
+│   ├── App.tsx                        # Hlavní aplikace
+│   └── main.tsx                       # Entry point
+├── package.json
+└── README.md
+```
+
+## 🎨 Funkce
+
+- ✨ **Moderní design** s sci-fi estetikou
+- 🎭 **Animace** pomocí Framer Motion
+- 📱 **Responzivní design** pro všechna zařízení
+- 🌐 **Kompletně v češtině**
+- 📧 **Kontaktní formulář**
+- 🔗 **Integrace se sociálními sítěmi**
+- ⚡ **Rychlé načítání** díky Vite
+
+## 🌍 Jazyky
+
+- **Čeština** - hlavní jazyk webu
+- Původně vytvořeno v angličtině a přeloženo do češtiny
+
+## 📞 Kontakt
+
+- **LinkedIn**: [Matěj Faksa](https://cz.linkedin.com/in/matej-faksa-148064177)
+- **Lokace**: Moravskoslezský kraj, Česká republika
+
+## 📄 Licence
+
+Tento projekt je určen pro osobní použití Matěje Faksy.
+
+---
+
+**Vytvořeno s ❤️ pro budoucnost AI a obchodní spolupráce**
