@@ -22,13 +22,13 @@ function App() {
     // Load profile data
     const loadProfileData = async () => {
       try {
-        // Use relative path that works with both local development and GitHub Pages
-        const response = await fetch('./data/matej_profile_data.json')
+        // Use path that works with Vite's base configuration
+        const response = await fetch('data/matej_profile_data.json')
         const data = await response.json()
         setProfileData(data)
       } catch (error) {
         console.error('Error loading profile data:', error)
-        // Fallback: try absolute path for local development
+        // Fallback: try with leading slash for local development
         try {
           const fallbackResponse = await fetch('/data/matej_profile_data.json')
           const fallbackData = await fallbackResponse.json()
@@ -66,7 +66,7 @@ function App() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: 'url(./images/sci-fi-background.jpg)',
+            backgroundImage: 'url(images/sci-fi-background.jpg)',
             filter: 'brightness(0.3) contrast(1.2)'
           }}
         />
