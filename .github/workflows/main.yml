@@ -27,26 +27,29 @@ jobs:
         with:
           fetch-depth: 0 # Získání celé historie pro správné fungování Page build
 
-      # Krok 2: Nastaví prostředí Node.js (verze 20, s cache pro pnpm)
+      # Krok 2: Nastaví prostředí Node.js (verze 20)
+      # Cache pro pnpm bude řešit pnpm/action-setup akce
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20' # Můžete zvolit jinou verzi Node.js, pokud potřebujete
-          cache: 'pnpm' # Používáte pnpm, cache se nastaví pro pnpm
+          # cache: 'pnpm' # Tuto cache nastaví akce pnpm/action-setup
 
-      # --- START: NOVÝ KROK PRO INSTALACI PNPM ---
-      # Krok pro zajištění dostupnosti pnpm (instalace globalne)
-      # Mělo by být zbytečné s cache: 'pnpm', ale řeší chybu "Unable to locate executable file: pnpm"
-      - name: Install pnpm globally
-        run: npm install -g pnpm
-      # --- END: NOVÝ KROK PRO INSTALACI PNPM ---
+      # --- START: POUŽITÍ OFICIÁLNÍ AKCE PRO NASTAVENÍ PNPM ---
+      # Krok pro nastavení pnpm a jeho cache
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8 # Volitelné: Můžete specifikovat konkrétní verzi pnpm, nebo vynechat pro nejnovější v8
+          run_install: false # Nechceme, aby pnpm akce spouštěla install, uděláme to v dalším kroku s --frozen-lockfile
+      # --- END: POUŽITÍ OFICIÁLNÍ AKCE PRO NASTAVENÍ PNPM ---
 
-      # Krok 3 (původně 3): Nainstaluje závislosti projektu (pomocí pnpm)
-      # Používáme --frozen-lockfile pro zajištění přesných verzí závislostí
+      # Krok 3: Nainstaluje závislosti projektu (pomocí pnpm)
+      # Teď by už měl být příkaz 'pnpm' dostupný
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # Krok 4 (původně 4): Sestaví váš Vite projekt
+      # Krok 4: Sestaví váš Vite projekt
       # Spustí skript 'build' definovaný ve vašem package.json (který spouští 'vite build')
       - name: Build project
         run: pnpm run build
@@ -64,7 +67,7 @@ jobs:
       # --- END: KROK PRO LADĚNÍ ---
 
 
-      # Krok 5 (původně 5): Nahraje sestavené soubory jako artifact pro nasazení na Pages
+      # Krok 5: Nahraje sestavené soubory jako artifact pro nasazení na Pages
       # uses: actions/upload-pages-artifact@v3 nahrává obsah složky definované v 'path'
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -81,7 +84,7 @@ jobs:
     needs: build # Tento job závisí na dokončení jobu 'build'
 
     steps:
-      # Krok 6 (původně 6): Nasadí nahrané soubory na GitHub Pages
+      # Krok 6: Nasadí nahrané soubory na GitHub Pages
       # Používá artifact nahraný předchozím jobem (actions/upload-pages-artifact)
       - name: Deploy to GitHub Pages
         id: deployment
