@@ -1,0 +1,91 @@
+name: Deploy Vite project to GitHub Pages # Název vašeho workflow
+
+on:
+  push: # Spustit workflow při každém pushi na definované větve
+    branches:
+      - main # Větev, na kterou se pushuje pro spuštění buildu a deploye
+
+  # Umožní ruční spuštění workflow z karty Akce na GitHubu
+  workflow_dispatch:
+
+# Nastaví potřebná oprávnění pro GitHub Pages action
+# TENTO BLOK JE KLÍČOVÝ pro deployment na Pages! Ujistěte se, že ho máte.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  # Job pro sestavení (build) projektu
+  build:
+    runs-on: ubuntu-latest # Běží na virtuálním stroji s Ubuntu
+
+    steps:
+      # Krok 1: Stáhne kód repozitáře
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Získání celé historie pro správné fungování Page build
+
+      # Krok 2: Nastaví prostředí Node.js (verze 20)
+      # Cache pro pnpm bude řešit pnpm/action-setup akce
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Můžete zvolit jinou verzi Node.js, pokud potřebujete
+          # cache: 'pnpm' # Tuto cache nastaví akce pnpm/action-setup
+
+      # --- START: POUŽITÍ OFICIÁLNÍ AKCE PRO NASTAVENÍ PNPM ---
+      # Krok pro nastavení pnpm a jeho cache
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8 # Volitelné: Můžete specifikovat konkrétní verzi pnpm, nebo vynechat pro nejnovější v8
+          run_install: false # Nechceme, aby pnpm akce spouštěla install, uděláme to v dalším kroku s --frozen-lockfile
+      # --- END: POUŽITÍ OFICIÁLNÍ AKCE PRO NASTAVENÍ PNPM ---
+
+      # Krok 3: Nainstaluje závislosti projektu (pomocí pnpm)
+      # Teď by už měl být příkaz 'pnpm' dostupný
+      - name: Install dependencies
+        run: pnpm install
+
+      # Krok 4: Sestaví váš Vite projekt
+      # Spustí skript 'build' definovaný ve vašem package.json (který spouští 'vite build')
+      - name: Build project
+        run: pnpm run build
+
+      # --- START: KROK PRO LADĚNÍ (PONECHANÝ) ---
+      # Krok pro ladění: Výpis obsahu výsledné složky 'dist'
+      # Zkontroluje, zda je tam složka data se souborem matej-profile_data.json
+      - name: List build output
+        run: |
+          echo "--- Obsah složky 'dist': ---"
+          # Příkaz ls -alR vypíše rekurzivně obsah složky dist,
+          # včetně skrytých souborů (-a) v dlouhém formátu (-l)
+          ls -alR dist
+          echo "--- Konec výpisu obsahu 'dist' ---"
+      # --- END: KROK PRO LADĚNÍ ---
+
+
+      # Krok 5: Nahraje sestavené soubory jako artifact pro nasazení na Pages
+      # uses: actions/upload-pages-artifact@v3 nahrává obsah složky definované v 'path'
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist' # Cesta ke složce, kam Vite ukládá výsledek (obvykle 'dist')
+          # Ujistěte se, že toto odpovídá složce generované buildem
+
+  # Job pro nasazení (deployment) na GitHub Pages
+  deploy:
+    environment:
+      name: github-pages # Název prostředí (standardně github-pages)
+      url: ${{ steps.deployment.outputs.page_url }} # Získá URL nasazené stránky
+    runs-on: ubuntu-latest # Běží na virtuálním stroji s Ubuntu
+    needs: build # Tento job závisí na dokončení jobu 'build'
+
+    steps:
+      # Krok 6: Nasadí nahrané soubory na GitHub Pages
+      # Používá artifact nahraný předchozím jobem (actions/upload-pages-artifact)
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
