@@ -1,52 +1,80 @@
-name: Deploy Vite project to GitHub Pages
+name: Deploy Vite project to GitHub Pages # Název vašeho workflow
 
 on:
-  push:
+  push: # Spustit workflow při každém pushi na definované větve
     branches:
-      - main
+      - main # Větev, na kterou se pushuje pro spuštění buildu a deploye
 
-permissions: # TENTO BLOK PŘIDEJTE
+  # Umožní ruční spuštění workflow z karty Akce na GitHubu
+  workflow_dispatch:
+
+# Nastaví potřebná oprávnění pro GitHub Pages action
+# TENTO BLOK JE KLÍČOVÝ pro deployment na Pages! Ujistěte se, že ho máte.
+permissions:
   contents: read
   pages: write
-  id-token: write # Toto je klíčové oprávnění
+  id-token: write
 
 jobs:
+  # Job pro sestavení (build) projektu
   build:
-    # ... zbytek build jobu ...
     runs-on: ubuntu-latest # Běží na virtuálním stroji s Ubuntu
 
     steps:
-      - name: Checkout code # Krok 1: Stáhne kód repozitáře
+      # Krok 1: Stáhne kód repozitáře
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # Získání celé historie pro správné fungování Page build
 
-      - name: Setup Node.js # Krok 2: Nastaví prostředí Node.js
+      # Krok 2: Nastaví prostředí Node.js (verze 20, s cache pro pnpm)
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20' # Můžete zvolit jinou verzi Node.js, pokud potřebujete
-          cache: 'npm' # Používá cache pro rychlejší instalaci npm balíčků
+          cache: 'pnpm' # Používáte pnpm, cache se nastaví pro pnpm
 
-      - name: Install dependencies # Krok 3: Nainstaluje závislosti projektu z package.json
-        run: npm install # Pokud používáte yarn nebo pnpm, změňte příkaz zde
+      # Krok 3: Nainstaluje závislosti projektu (pomocí pnpm)
+      # Používáme --frozen-lockfile pro zajištění přesných verzí závislostí
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - name: Build project # Krok 4: Sestaví váš Vite projekt
-        run: npm run build # Spustí skript 'build' definovaný ve vašem package.json
+      # Krok 4: Sestaví váš Vite projekt
+      # Spustí skript 'build' definovaný ve vašem package.json (který spouští 'vite build')
+      - name: Build project
+        run: pnpm run build
 
-      - name: Upload Pages artifact # Krok 5: Nahraje sestavené soubory pro nasazení
+      # --- START: NOVÝ KROK PRO LADĚNÍ ---
+      # Krok pro ladění: Výpis obsahu výsledné složky 'dist'
+      # Zkontroluje, zda je tam složka data se souborem matej-profile_data.json
+      - name: List build output
+        run: |
+          echo "--- Obsah složky 'dist': ---"
+          # Příkaz ls -alR vypíše rekurzivně obsah složky dist,
+          # včetně skrytých souborů (-a) v dlouhém formátu (-l)
+          ls -alR dist
+          echo "--- Konec výpisu obsahu 'dist' ---"
+      # --- END: NOVÝ KROK PRO LADĚNÍ ---
+
+      # Krok 5: Nahraje sestavené soubory jako artifact pro nasazení na Pages
+      # uses: actions/upload-pages-artifact@v3 nahrává obsah složky definované v 'path'
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Cesta ke složce, kam 'npm run build' ukládá výsledek (obvykle 'dist' pro Vite)
-          path: ./dist # Ujistěte se, že toto odpovídá složce generované buildem
+          path: './dist' # Cesta ke složce, kam Vite ukládá výsledek (obvykle 'dist')
+          # Ujistěte se, že toto odpovídá složce generované buildem
 
-  # Krok pro nasazení (standardní pro GitHub Pages)
+  # Job pro nasazení (deployment) na GitHub Pages
   deploy:
-      environment:
-          name: github-pages
-          url: ${{ steps.deployment.outputs.page_url }} # Získá URL nasazené stránky
-      runs-on: ubuntu-latest
-      needs: build # Tento job závisí na dokončení jobu 'build'
-      steps:
-        - name: Deploy to GitHub Pages # Krok 6: Nasadí nahrané soubory na GitHub Pages
-          id: deployment
-          uses: actions/deploy-pages@v4
+    environment:
+      name: github-pages # Název prostředí (standardně github-pages)
+      url: ${{ steps.deployment.outputs.page_url }} # Získá URL nasazené stránky
+    runs-on: ubuntu-latest # Běží na virtuálním stroji s Ubuntu
+    needs: build # Tento job závisí na dokončení jobu 'build'
+
+    steps:
+      # Krok 6: Nasadí nahrané soubory na GitHub Pages
+      # Používá artifact nahraný předchozím jobem (actions/upload-pages-artifact)
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
