@@ -47,7 +47,7 @@ jobs:
       # Krok 3: Nainstaluje závislosti projektu (pomocí pnpm)
       # Teď by už měl být příkaz 'pnpm' dostupný
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       # Krok 4: Sestaví váš Vite projekt
       # Spustí skript 'build' definovaný ve vašem package.json (který spouští 'vite build')
