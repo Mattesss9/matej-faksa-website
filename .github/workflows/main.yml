@@ -34,17 +34,24 @@ jobs:
           node-version: '20' # Můžete zvolit jinou verzi Node.js, pokud potřebujete
           cache: 'pnpm' # Používáte pnpm, cache se nastaví pro pnpm
 
-      # Krok 3: Nainstaluje závislosti projektu (pomocí pnpm)
+      # --- START: NOVÝ KROK PRO INSTALACI PNPM ---
+      # Krok pro zajištění dostupnosti pnpm (instalace globalne)
+      # Mělo by být zbytečné s cache: 'pnpm', ale řeší chybu "Unable to locate executable file: pnpm"
+      - name: Install pnpm globally
+        run: npm install -g pnpm
+      # --- END: NOVÝ KROK PRO INSTALACI PNPM ---
+
+      # Krok 3 (původně 3): Nainstaluje závislosti projektu (pomocí pnpm)
       # Používáme --frozen-lockfile pro zajištění přesných verzí závislostí
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # Krok 4: Sestaví váš Vite projekt
+      # Krok 4 (původně 4): Sestaví váš Vite projekt
       # Spustí skript 'build' definovaný ve vašem package.json (který spouští 'vite build')
       - name: Build project
         run: pnpm run build
 
-      # --- START: NOVÝ KROK PRO LADĚNÍ ---
+      # --- START: KROK PRO LADĚNÍ (PONECHANÝ) ---
       # Krok pro ladění: Výpis obsahu výsledné složky 'dist'
       # Zkontroluje, zda je tam složka data se souborem matej-profile_data.json
       - name: List build output
@@ -54,9 +61,10 @@ jobs:
           # včetně skrytých souborů (-a) v dlouhém formátu (-l)
           ls -alR dist
           echo "--- Konec výpisu obsahu 'dist' ---"
-      # --- END: NOVÝ KROK PRO LADĚNÍ ---
+      # --- END: KROK PRO LADĚNÍ ---
 
-      # Krok 5: Nahraje sestavené soubory jako artifact pro nasazení na Pages
+
+      # Krok 5 (původně 5): Nahraje sestavené soubory jako artifact pro nasazení na Pages
       # uses: actions/upload-pages-artifact@v3 nahrává obsah složky definované v 'path'
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -73,7 +81,7 @@ jobs:
     needs: build # Tento job závisí na dokončení jobu 'build'
 
     steps:
-      # Krok 6: Nasadí nahrané soubory na GitHub Pages
+      # Krok 6 (původně 6): Nasadí nahrané soubory na GitHub Pages
       # Používá artifact nahraný předchozím jobem (actions/upload-pages-artifact)
       - name: Deploy to GitHub Pages
         id: deployment
