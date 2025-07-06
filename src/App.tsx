@@ -22,14 +22,23 @@ function App() {
     // Load profile data
     const loadProfileData = async () => {
       try {
-        const response = await fetch('/data/matej_profile_data.json')
+        // Use path that works with Vite's base configuration
+        const response = await fetch('data/matej_profile_data.json')
         const data = await response.json()
         setProfileData(data)
       } catch (error) {
         console.error('Error loading profile data:', error)
+        // Fallback: try with leading slash for local development
+        try {
+          const fallbackResponse = await fetch('/data/matej_profile_data.json')
+          const fallbackData = await fallbackResponse.json()
+          setProfileData(fallbackData)
+        } catch (fallbackError) {
+          console.error('Fallback also failed:', fallbackError)
+        }
       }
     }
-    
+
     loadProfileData()
   }, [])
 
@@ -54,10 +63,10 @@ function App() {
         className="fixed inset-0 z-0"
         style={{ opacity }}
       >
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: 'url(/images/sci-fi-background.jpg)',
+            backgroundImage: 'url(images/sci-fi-background.jpg)',
             filter: 'brightness(0.3) contrast(1.2)'
           }}
         />
