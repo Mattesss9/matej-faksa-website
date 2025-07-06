@@ -129,7 +129,7 @@ const AboutSection = ({ profileData }: AboutSectionProps) => {
                   </li>
                   <li className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <span><strong className="text-purple-400">Connect Partners:</strong> Bridging companies, investors, and innovators</span>
+                    <span><strong className="text-purple-400">Propojování partnerů:</strong> Propojování společností, investorů a inovátorů</span>
                   </li>
                 </ul>
               </div>
@@ -138,7 +138,7 @@ const AboutSection = ({ profileData }: AboutSectionProps) => {
             {/* Location & Contact Info */}
             <div className="relative p-8 rounded-lg border border-cyan-400/30 bg-gray-900/50 backdrop-blur-sm">
               <div className="absolute -top-3 left-6 bg-gray-900 px-3 text-cyan-400 text-sm font-semibold">
-                LOCATION
+                LOKALITA
               </div>
               
               <div className="space-y-4">
@@ -164,7 +164,7 @@ const AboutSection = ({ profileData }: AboutSectionProps) => {
           variants={itemVariants}
           className="mt-16 text-center"
         >
-          <h3 className="text-2xl font-bold text-gray-300 mb-8">Cross-Industry Expertise</h3>
+          <h3 className="text-2xl font-bold text-gray-300 mb-8">Mezioborové znalosti</h3>
           <div className="flex flex-wrap justify-center gap-4">
             {profileData.industries.map((industry: string, index: number) => (
               <motion.span

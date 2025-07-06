@@ -157,7 +157,7 @@ const WhyJoinSection = () => {
                   <h4 className={`text-lg font-semibold ${
                     opportunity.color === 'cyan' ? 'text-cyan-400' : 'text-purple-400'
                   }`}>
-                    What You Get:
+                    Co získáte:
                   </h4>
                   <ul className="space-y-2">
                     {opportunity.benefits.map((benefit, idx) => (
@@ -207,10 +207,10 @@ const WhyJoinSection = () => {
           className="grid md:grid-cols-4 gap-6 mb-12"
         >
           {[
-            { number: "5+", label: "Years Experience", color: "cyan" },
-            { number: "7+", label: "Industries", color: "purple" },
-            { number: "100+", label: "Professional Connections", color: "cyan" },
-            { number: "∞", label: "Growth Potential", color: "purple" }
+            { number: "5+", label: "Let zkušeností", color: "cyan" },
+            { number: "7+", label: "Odvětví", color: "purple" },
+            { number: "100+", label: "Profesních spojení", color: "cyan" },
+            { number: "∞", label: "Potenciál růstu", color: "purple" }
           ].map((metric, index) => (
             <motion.div
               key={metric.label}
@@ -249,7 +249,7 @@ const WhyJoinSection = () => {
               whileTap={{ scale: 0.95 }}
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <span className="relative z-10">Connect With Me</span>
+              <span className="relative z-10">Spojte se se mnou</span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 layoutId="final-cta-bg"

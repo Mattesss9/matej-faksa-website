@@ -13,32 +13,32 @@ const TestimonialsSection = () => {
     {
       name: "Sarah Chen",
       role: "CTO, TechVision Solutions",
-      company: "Technology Consulting",
-      quote: "Matěj's unique blend of business acumen and AI expertise helped us implement our first AI-driven solution. His ability to bridge the gap between technical complexity and business value is exceptional. The results exceeded our expectations.",
+      company: "Technologické poradenství",
+      quote: "Matějova jedinečná kombinace obchodního ducha a odborných znalostí v oblasti AI nám pomohla implementovat naše první řešení řízené umělou inteligencí. Jeho schopnost překlenout propast mezi technickou složitostí a obchodní hodnotou je výjimečná. Výsledky předčily naše očekávání.",
       rating: 5,
       image: "SC"
     },
     {
       name: "Marcus Rodriguez",
-      role: "Founder & CEO",
+      role: "Zakladatel a CEO",
       company: "InnovateNow Ventures",
-      quote: "Working with Matěj opened doors we didn't even know existed. His network is impressive, but more importantly, his vision for collaborative AI development has transformed how we approach partnerships. A true connector and innovator.",
+      quote: "Spolupráce s Matějem nám otevřela dveře, o kterých jsme ani nevěděli, že existují. Jeho síť kontaktů je působivá, ale co je důležitější, jeho vize pro kolaborativní vývoj AI změnila náš přístup k partnerstvím. Skutečný propojovatel a inovátor.",
       rating: 5,
       image: "MR"
     },
     {
       name: "Elena Kovář",
-      role: "Head of Digital Transformation",
-      company: "Regional Manufacturing Group",
-      quote: "Matěj's workshops and guidance helped our entire team understand AI's practical applications. His approach makes complex technology accessible without losing the depth needed for real implementation. Highly recommended for any organization exploring AI.",
+      role: "Vedoucí digitální transformace",
+      company: "Regionální výrobní skupina",
+      quote: "Matějovy workshopy a vedení pomohly celému našemu týmu pochopit praktické aplikace AI. Jeho přístup zpřístupňuje složité technologie, aniž by ztrácel hloubku potřebnou pro skutečnou implementaci. Vřele doporučuji každé organizaci, která zkoumá možnosti AI.",
       rating: 5,
       image: "EK"
     },
     {
       name: "David Thompson",
-      role: "Senior Developer",
+      role: "Senior vývojář",
       company: "AI Solutions Collective",
-      quote: "The collaborative environment Matěj creates is incredible. Through his community, I've worked on projects I never would have accessed independently. His mentorship and the connections he facilitates have accelerated my AI development career significantly.",
+      quote: "Prostředí pro spolupráci, které Matěj vytváří, je neuvěřitelné. Díky jeho komunitě jsem pracoval na projektech, ke kterým bych se samostatně nikdy nedostal. Jeho mentorství a kontakty, které zprostředkovává, výrazně urychlily mou kariéru ve vývoji AI.",
       rating: 5,
       image: "DT"
     }

@@ -171,9 +171,9 @@ const AIVisionSection = ({ profileData }: AIVisionSectionProps) => {
                 className="p-6 rounded-lg border border-cyan-400/20 bg-gray-900/30"
                 whileHover={{ scale: 1.05, borderColor: "rgba(0, 255, 255, 0.5)" }}
               >
-                <h4 className="text-lg font-bold text-cyan-400 mb-3">Learners & Curious Minds</h4>
+                <h4 className="text-lg font-bold text-cyan-400 mb-3">Studenti a zvědavci</h4>
                 <p className="text-gray-300 text-sm">
-                  Explore AI potential through workshops, knowledge sharing sessions, and hands-on learning experiences.
+                  Objevujte potenciál AI prostřednictvím workshopů, sdílení znalostí a praktických zkušeností.
                 </p>
               </motion.div>
               
@@ -181,9 +181,9 @@ const AIVisionSection = ({ profileData }: AIVisionSectionProps) => {
                 className="p-6 rounded-lg border border-purple-600/20 bg-gray-900/30"
                 whileHover={{ scale: 1.05, borderColor: "rgba(138, 43, 226, 0.5)" }}
               >
-                <h4 className="text-lg font-bold text-purple-400 mb-3">Developers & Creators</h4>
+                <h4 className="text-lg font-bold text-purple-400 mb-3">Vývojáři a tvůrci</h4>
                 <p className="text-gray-300 text-sm">
-                  Collaborate on AI projects, share implementation strategies, and build real-world solutions together.
+                  Spolupracujte na AI projektech, sdílejte implementační strategie a společně budujte reálná řešení.
                 </p>
               </motion.div>
               
@@ -191,9 +191,9 @@ const AIVisionSection = ({ profileData }: AIVisionSectionProps) => {
                 className="p-6 rounded-lg border border-cyan-400/20 bg-gray-900/30"
                 whileHover={{ scale: 1.05, borderColor: "rgba(0, 255, 255, 0.5)" }}
               >
-                <h4 className="text-lg font-bold text-cyan-400 mb-3">Business Partners</h4>
+                <h4 className="text-lg font-bold text-cyan-400 mb-3">Obchodní partneři</h4>
                 <p className="text-gray-300 text-sm">
-                  Scale ventures, explore AI integration opportunities, and connect with like-minded entrepreneurs.
+                  Rozšiřujte své podnikání, prozkoumávejte možnosti integrace AI a spojte se s podobně smýšlejícími podnikateli.
                 </p>
               </motion.div>
             </div>
